@@ -1,0 +1,14 @@
+
+$custom-theme: mat-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat-typography-config(),
+  )
+);
+
+// Incluye los estilos de Angular Material a partir del tema personalizado
+@include angular-material-theme($custom-theme);
