@@ -1,17 +1,9 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sideNav>
     <mat-nav-list (click)="sideNav.close()">
-      <a mat-list-item routerLink="">
-        <mat-icon>account_box</mat-icon>
-        <span>Ingreso Pacientes</span>
-      </a>
-      <a mat-list-item routerLink="">
-        <mat-icon>send_time_extension</mat-icon>
-        <span>Insumos</span>
-      </a>
-      <a mat-list-item routerLink="">
-        <mat-icon>extension</mat-icon>
-        <span>Procedimientos</span>
+      <a mat-list-item [routerLink]="item.route_path" *ngFor="let item of (menuItems$ | async)">
+        <mat-icon>{{ item.icon_img }}</mat-icon>
+        <span>{{ item.label }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
