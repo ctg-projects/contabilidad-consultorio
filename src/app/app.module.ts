@@ -6,16 +6,18 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from "./shared/material/material.module";
-import { AppComponent } from './app.component';
-import { HomeComponent } from './features/home/home.component';
 import { menuReducer } from './store/menu/menu.reducer';
 import { environment } from '../environments/environment';
 import { MenuEffects } from './store/menu/menu.effects';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './features/home/home.component';
+import { AddItemFormComponent } from './features/add-item-form/add-item-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AddItemFormComponent
   ],
   imports: [
     BrowserModule,
