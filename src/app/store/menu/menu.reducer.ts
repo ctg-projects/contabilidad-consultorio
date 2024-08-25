@@ -5,7 +5,6 @@ import { MenuState, initialMenuState } from './menu.state';
 export const menuReducer = createReducer(
   initialMenuState,
   on(loadMenuItemsSuccess, (state, { menuItems }) => {
-    console.log('Reducer received menu items:', menuItems);
     return {
       ...state,
       menuItems

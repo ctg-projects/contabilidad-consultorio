@@ -10,7 +10,6 @@ export class MenuEffects {
     this.actions$.pipe(
       ofType(loadMenuItems),
       map(() => {
-        console.log('Effect triggered, loading menu items');
         return loadMenuItemsSuccess({ menuItems: MENU_SERVICIOS })})
     )
   );

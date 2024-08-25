@@ -1,0 +1,91 @@
+<h2>Nuevo Ingreso de Paciente</h2>
+<mat-horizontal-stepper class="mat-elevation-z2" linear="true" labelPosition="bottom"   #stepper>
+  <mat-step [stepControl]="personalInfoFormGroup">
+    <form [formGroup]="personalInfoFormGroup">
+      <ng-template matStepLabel>
+        Informacion Personal
+      </ng-template>
+      <mat-form-field>
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="personalInfoFormGroup.get('fecha')?.hasError('required')">Fecha es requerida</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput formControlName="nombreCompleto" required maxlength="60" minlength="5">
+        <mat-error *ngIf="personalInfoFormGroup.get('nombreCompleto')?.hasError('required')">Nombre completo es requerido</mat-error>
+        <mat-error *ngIf="personalInfoFormGroup.get('nombreCompleto')?.hasError('minlength')">Mínimo 5 caracteres</mat-error>
+        <mat-error *ngIf="personalInfoFormGroup.get('nombreCompleto')?.hasError('maxlength')">Máximo 60 caracteres</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Documento de Identidad</mat-label>
+        <input matInput formControlName="documentoIdentidad" required>
+        <mat-error *ngIf="personalInfoFormGroup.get('documentoIdentidad')?.hasError('required')">Documento de Identidad es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="correoElectronico" required>
+        <mat-error *ngIf="personalInfoFormGroup.get('correoElectronico')?.hasError('required')">Correo electrónico es requerido</mat-error>
+        <mat-error *ngIf="personalInfoFormGroup.get('correoElectronico')?.hasError('pattern')">Formato de correo inválido</mat-error>
+      </mat-form-field>
+    </form>
+    <div class="stepper-buttons">
+      <button mat-raised-button color="secondary" matStepperNext>
+        Siguiente
+      </button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="procedureInfoFormGroup">
+    <form [formGroup]="procedureInfoFormGroup">
+      <ng-template matStepLabel>
+        Informacion del Procedimiento
+      </ng-template>
+      <mat-form-field>
+        <mat-label>Fecha Procedimiento</mat-label>
+        <input matInput [matDatepicker]="picker_proced" formControlName="fecha_procedimiento" required>
+        <mat-datepicker-toggle matSuffix [for]="picker_proced"></mat-datepicker-toggle>
+        <mat-datepicker #picker_proced></mat-datepicker>
+        <mat-error *ngIf="personalInfoFormGroup.get('fecha_procedimiento')?.hasError('required')">Fecha es requerida</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Procedimiento</mat-label>
+        <mat-select formControlName="procedimiento" multiple required>
+          <mat-option *ngFor="let proced of procedimientos" value="proced.nombre">
+            {{ proced.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="procedureInfoFormGroup.get('procedimiento')?.hasError('required')">Procedimiento es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Profesional</mat-label>
+        <mat-select formControlName="profesional" required>
+          <mat-option *ngFor="let prof of profesionales" value="'{{prof.nombre}} {{ prof.apellidos}}'">
+            {{ prof.nombre }} {{prof.apellidos}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="procedureInfoFormGroup.get('profesional')?.hasError('required')">Profesional es requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Método de Pago</mat-label>
+        <mat-select formControlName="metodoPago" required>
+          <mat-option *ngFor="let metPago of metodosPago" value="metPago.metodo_pago">
+            {{metPago.metodo_pago}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="procedureInfoFormGroup.get('metodoPago')?.hasError('required')">Método de Pago es requerido</mat-error>
+      </mat-form-field>
+    </form>
+      <div class="stepper-buttons">
+        <button mat-raised-button color="primary" (click)="onSubmit()">Ingresar Paciente</button>
+      </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

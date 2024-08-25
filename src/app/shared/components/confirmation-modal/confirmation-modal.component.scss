@@ -1,0 +1,17 @@
+.modal-wrapper {
+  min-width: 480px;
+}
+
+
+mat-dialog-content {
+  margin-bottom: 16px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-left: 8px;
+}
