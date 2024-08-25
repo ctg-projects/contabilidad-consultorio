@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
 import {  MatDialogModule } from "@angular/material/dialog";
 import {  MatInputModule } from "@angular/material/input";
 import {  MatListModule } from "@angular/material/list";
@@ -27,6 +28,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatCardModule,
     MatTabsModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatInputModule,
     MatListModule,

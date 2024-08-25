@@ -1,0 +1,18 @@
+<div class="modal-wrapper">
+  <h2 mat-dialog-title>Modal Confirmation</h2>
+  <mat-dialog-content>
+    <ul>
+      <li><strong>Fecha:</strong> {{ data.fecha }}</li>
+      <li><strong>Nombre Completo:</strong> {{ data.nombreCompleto }}</li>
+      <li><strong>Documento de Identidad:</strong> {{ data.documentoIdentidad }}</li>
+      <li><strong>Correo Electrónico:</strong> {{ data.correoElectronico }}</li>
+      <li><strong>Procedimiento:</strong> {{ data.procedimiento }}</li>
+      <li><strong>Profesional:</strong> {{ data.profesional }}</li>
+      <li><strong>Método de Pago:</strong> {{ data.metodoPago }}</li>
+    </ul>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="confirmar()">Confirmar</button>
+    <button mat-raised-button color="secondary" (click)="editar()">Editar</button>
+  </mat-dialog-actions>
+</div>

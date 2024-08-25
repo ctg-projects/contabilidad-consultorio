@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,18 +13,21 @@ import { MenuEffects } from './store/menu/menu.effects';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { AddItemFormComponent } from './features/add-item-form/add-item-form.component';
+import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AddItemFormComponent
+    AddItemFormComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ menu: menuReducer }),
     EffectsModule.forRoot([MenuEffects]),
     StoreDevtoolsModule.instrument({
