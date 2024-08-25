@@ -8,6 +8,9 @@ import {MAT_DIALOG_DATA,  MatDialog,  MatDialogConfig,  MatDialogRef} from '@ang
 })
 export class ConfirmationModalComponent {
   public title = 'Por favor, confirma los datos ingresados:'
+  public confirmLabel = '';
+  public cancelLabel = '';
+  public dataContent:any = {};
   @Output() action = new EventEmitter<string>();
 
   constructor(
@@ -15,6 +18,9 @@ export class ConfirmationModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ){
     console.log(data);
+    this.title = data.title;
+    this.dataContent = data.data;
+    console.log(this.dataContent);
   }
 
   confirmar(){

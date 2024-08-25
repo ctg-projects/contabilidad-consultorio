@@ -44,6 +44,8 @@ export class AddItemFormComponent implements OnInit {
       const formData = {
         ...this.personalInfoFormGroup.value,
         ...this.procedureInfoFormGroup.value,
+        fecha: this.formatDate(this.personalInfoFormGroup.value.fecha),
+        fecha_procedimiento: this.formatDate(this.procedureInfoFormGroup.value.fecha_procedimiento),
       };
       this.openModalDialog(formData);
     } else {
@@ -54,22 +56,22 @@ export class AddItemFormComponent implements OnInit {
   openModalDialog(data:any = {}){
 
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
-      width: '400px',
+      minWidth: '480px',
       data: {
-        title: '',
+        title: 'Confirmar Datos',
         subtitle: '',
         footer: {
-          confirmCta: '',
-          cancelCta: '',
-          alignFooter:''
+          confirmCta: 'Confirmar',
+          cancelCta: 'Cancelar',
+          alignFooter:'end'
         },
         data
       }
     });
 
-    dialogRef.afterClosed().subscribe(resp => {
-      console.log(resp);
-      if (resp) {
+    dialogRef.afterClosed().subscribe(action => {
+      console.log(action);
+      if (action) {
         // Si se confirmó, resetea el formulario y el stepper
         this.personalInfoFormGroup.reset();
         this.procedureInfoFormGroup.reset();
@@ -77,4 +79,12 @@ export class AddItemFormComponent implements OnInit {
       }
     });
   }
+
+  formatDate(date: Date): string {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
 }

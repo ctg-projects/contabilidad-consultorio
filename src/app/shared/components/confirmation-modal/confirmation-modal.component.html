@@ -1,18 +1,19 @@
 <div class="modal-wrapper">
-  <h2 mat-dialog-title>Modal Confirmation</h2>
+  <h2 mat-dialog-title>{{title}}</h2>
   <mat-dialog-content>
     <ul>
-      <li><strong>Fecha:</strong> {{ data.fecha }}</li>
-      <li><strong>Nombre Completo:</strong> {{ data.nombreCompleto }}</li>
-      <li><strong>Documento de Identidad:</strong> {{ data.documentoIdentidad }}</li>
-      <li><strong>Correo Electrónico:</strong> {{ data.correoElectronico }}</li>
-      <li><strong>Procedimiento:</strong> {{ data.procedimiento }}</li>
-      <li><strong>Profesional:</strong> {{ data.profesional }}</li>
-      <li><strong>Método de Pago:</strong> {{ data.metodoPago }}</li>
+      <li><strong>Fecha Nacimiento:</strong> {{ dataContent?.fecha }}</li>
+      <li><strong>Nombre Completo:</strong> {{ dataContent?.nombreCompleto }}</li>
+      <li><strong>Documento de Identidad:</strong> {{ dataContent?.documentoIdentidad }}</li>
+      <li><strong>Correo Electrónico:</strong> {{ dataContent?.correoElectronico }}</li>
+      <li><strong>Fecha Procedimiento:</strong> {{ dataContent?.fecha_procedimiento }}</li>
+      <li><strong>Procedimiento:</strong> {{ dataContent?.procedimiento }}</li>
+      <li><strong>Profesional:</strong> {{ dataContent?.profesional }}</li>
+      <li><strong>Método de Pago:</strong> {{ dataContent?.metodoPago }}</li>
     </ul>
   </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="confirmar()">Confirmar</button>
-    <button mat-raised-button color="secondary" (click)="editar()">Editar</button>
+  <mat-dialog-actions  [align]="data.footer.alignFooter">
+    <button mat-raised-button color="primary" (click)="confirmar()">{{data.footer.confirmCta}}</button>
+    <button mat-raised-button color="secondary" (click)="editar()">{{data.footer.cancelCta}}</button>
   </mat-dialog-actions>
 </div>
