@@ -17,10 +17,8 @@ export class ConfirmationModalComponent {
     public dialogRef: MatDialogRef<ConfirmationModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ){
-    console.log(data);
     this.title = data.title;
     this.dataContent = data.data;
-    console.log(this.dataContent);
   }
 
   confirmar(){
