@@ -1,0 +1,10 @@
+<div class="breadcrumb">
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+    <a *ngIf="!last" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+    <span *ngIf="last">{{ breadcrumb.label }}</span>
+    <span *ngIf="!last"> / </span>
+  </ng-container>
+</div>

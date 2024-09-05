@@ -4,9 +4,9 @@ import { HomeComponent } from './features/home/home.component';
 import { AddItemFormComponent } from './features/add-item-form/add-item-form.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'add-item', component: AddItemFormComponent }
+  { path: 'home/add-item', component: AddItemFormComponent }
 
   //{ path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
   //{ path: 'procedimientos-pacientes', loadChildren: () => import('./modules/procedimientos-pacientes/procedimientos-pacientes.module').then(m => m.ProcedimientosPacientesModule) },

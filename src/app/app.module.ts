@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MaterialModule } from "./shared/material/material.module";
 import { menuReducer } from './store/menu/menu.reducer';
 import { environment } from '../environments/environment';
 import { MenuEffects } from './store/menu/menu.effects';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { AddItemFormComponent } from './features/add-item-form/add-item-form.component';
+import { MaterialModule } from "./shared/material/material.module";
+import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ConfirmationModalComponent } from './shared/components/confirmation-mod
     AppComponent,
     HomeComponent,
     AddItemFormComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
