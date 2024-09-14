@@ -18,7 +18,7 @@ export class ConfirmationModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ){
     this.title = data.title;
-    this.dataContent = data.data;
+    this.dataContent = data.paciente;
   }
 
   confirmar(){
