@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { menuReducer } from './store/menu/menu.reducer';
-import { environment } from '../environments/environment';
 import { MenuEffects } from './store/menu/menu.effects';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
@@ -15,6 +14,10 @@ import { AddItemFormComponent } from './features/add-item-form/add-item-form.com
 import { MaterialModule } from "./shared/material/material.module";
 import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { ConfirmationModalComponent } from './shared/components/confirmation-mod
       maxAge: 25,
       logOnly: environment.production,
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

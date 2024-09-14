@@ -4,6 +4,7 @@ import { MatStepper } from '@angular/material/stepper';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal.component';
 import { PROCEDIMIENTOS, PROFESIONALES, METODOS_PAGO } from "../../shared/constants/app-helpers-constants";
+import { PacientesService } from '../../shared/services/pacientes.service';
 
 @Component({
   selector: 'add-item-form',
@@ -19,7 +20,11 @@ export class AddItemFormComponent implements OnInit {
   public metodosPago = METODOS_PAGO;
 
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog){
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+    private pacienteSrv: PacientesService
+  ){
     this.personalInfoFormGroup = this.fb.group({
       fecha: ['', Validators.required],
       nombreCompleto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
@@ -53,7 +58,8 @@ export class AddItemFormComponent implements OnInit {
     }
   }
 
-  openModalDialog(data:any = {}){
+  openModalDialog(dataPaciente:any = {}){
+    console.log(dataPaciente);
 
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
       minWidth: '480px',
@@ -65,19 +71,26 @@ export class AddItemFormComponent implements OnInit {
           cancelCta: 'Cancelar',
           alignFooter:'end'
         },
-        data
+        paciente: dataPaciente
       }
     });
 
     dialogRef.afterClosed().subscribe(action => {
       console.log(action);
       if (action) {
-        // Si se confirmó, resetea el formulario y el stepper
-        this.personalInfoFormGroup.reset();
-        this.procedureInfoFormGroup.reset();
-        this.stepper.reset();
+        this.agregarPaciente(dataPaciente);
       }
     });
+  }
+
+  agregarPaciente(paciente:any){
+    console.log(paciente);
+
+    this.pacienteSrv.addPaciente(paciente).then(()=>{
+      this.personalInfoFormGroup.reset();
+      this.procedureInfoFormGroup.reset();
+      this.stepper.reset();
+    })
   }
 
   formatDate(date: Date): string {

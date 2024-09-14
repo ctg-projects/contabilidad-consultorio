@@ -59,7 +59,7 @@
       <mat-form-field>
         <mat-label>Procedimiento</mat-label>
         <mat-select formControlName="procedimiento" multiple required>
-          <mat-option *ngFor="let proced of procedimientos" value="proced.nombre">
+          <mat-option *ngFor="let proced of procedimientos" [value]="proced.nombre">
             {{ proced.nombre }}
           </mat-option>
         </mat-select>
@@ -69,7 +69,7 @@
       <mat-form-field>
         <mat-label>Profesional</mat-label>
         <mat-select formControlName="profesional" required>
-          <mat-option *ngFor="let prof of profesionales" value="'{{prof.nombre}} {{ prof.apellidos}}'">
+          <mat-option *ngFor="let prof of profesionales" [value]="prof.nombre + ' ' + prof.apellidos">
             {{ prof.nombre }} {{prof.apellidos}}
           </mat-option>
         </mat-select>
@@ -79,7 +79,7 @@
       <mat-form-field>
         <mat-label>Método de Pago</mat-label>
         <mat-select formControlName="metodoPago" required>
-          <mat-option *ngFor="let metPago of metodosPago" value="metPago.metodo_pago">
+          <mat-option *ngFor="let metPago of metodosPago" [value]="metPago.metodo_pago">
             {{metPago.metodo_pago}}
           </mat-option>
         </mat-select>
