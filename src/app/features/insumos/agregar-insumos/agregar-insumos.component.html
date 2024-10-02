@@ -1,0 +1,30 @@
+<app-breadcrumb></app-breadcrumb>
+
+<h2>Ingreso de Insumo</h2>
+<form [formGroup]="insumosFormGroup">
+  <mat-form-field>
+    <mat-label>Nombre Insumo</mat-label>
+    <input matInput formControlName="nombreInsumo" required>
+    <mat-error *ngIf="insumosFormGroup.get('nombreInsumo')?.hasError('required')">Por favor completar nombre de insumo</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Marca</mat-label>
+    <input matInput formControlName="marca">
+    <mat-error *ngIf="insumosFormGroup.get('marca')?.hasError('required')">Por favor completar nombre de insumo</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Precio unitario</mat-label>
+    <input matInput formControlName="precioUnitario" required>
+    <mat-error *ngIf="insumosFormGroup.get('precioUnitario')?.hasError('required')">Por favor ingresar precio del insumo</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Cantidad</mat-label>
+    <input matInput formControlName="cantidad" required>
+    <mat-error *ngIf="insumosFormGroup.get('cantidad')?.hasError('required')">Por favor ingresar cantidad de inventario</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="prymary">
+    Ingresar Insumo
+  </button>
+
+</form>

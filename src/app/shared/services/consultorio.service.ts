@@ -22,5 +22,15 @@ export class PacientesService {
     return this.firestore.collection<Paciente>('pacientes').valueChanges();
   }
 
+  addInsunmo(insumo:any):Promise<void>{
+    const id = this.firestore.createId();
+    console.log('Añadiendo insumo:', insumo);
+    return this.firestore.collection('insumos').doc(id).set({ ...insumo, id })
+    .then(() => console.log('Insumo añadido con éxito'))
+    .catch((error) => console.error('Error al añadir insumo: ', error));
+  }
 
+  getInsumos(): Observable<any>{
+    return this.firestore.collection<any>('insumos').valueChanges();
+  }
 }

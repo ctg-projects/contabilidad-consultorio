@@ -2,14 +2,14 @@ export const MENU_SERVICIOS = [
   {
     label: 'Ingreso Pacientes',
     description: 'Corta descripcion va aqui',
-    route_path: 'add-item',
+    route_path: 'agregar-item',
     icon_img: 'account_box',
     src_img: ''
   },
   {
     label: 'Insumos',
     description: 'Corta descripcion va aqui',
-    route_path: '/',
+    route_path: 'agregar-insumo',
     icon_img: 'send_time_extension',
     src_img: ''
   },

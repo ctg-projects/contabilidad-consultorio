@@ -10,7 +10,9 @@ import { menuReducer } from './store/menu/menu.reducer';
 import { MenuEffects } from './store/menu/menu.effects';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
-import { AddItemFormComponent } from './features/add-item-form/add-item-form.component';
+import { AgregarPacienteComponent } from './features/agregar-paciente/agregar-pacientes.component';
+import { AgregarInsumosComponent } from './features/insumos/agregar-insumos/agregar-insumos.component';
+import { CategoriasInsumosComponent } from './features/insumos/categorias-insumos/categorias-insumos.component';
 import { MaterialModule } from "./shared/material/material.module";
 import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
@@ -23,9 +25,11 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     HomeComponent,
-    AddItemFormComponent,
+    AgregarPacienteComponent,
     ConfirmationModalComponent,
-    BreadcrumbComponent
+    CategoriasInsumosComponent,
+    BreadcrumbComponent,
+    AgregarInsumosComponent
   ],
   imports: [
     BrowserModule,

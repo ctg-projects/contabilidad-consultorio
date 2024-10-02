@@ -4,14 +4,14 @@ import { MatStepper } from '@angular/material/stepper';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal.component';
 import { PROCEDIMIENTOS, PROFESIONALES, METODOS_PAGO } from "../../shared/constants/app-helpers-constants";
-import { PacientesService } from '../../shared/services/pacientes.service';
+import { PacientesService } from '../../shared/services/consultorio.service';
 
 @Component({
   selector: 'add-item-form',
-  templateUrl: './add-item-form.component.html',
-  styleUrl: './add-item-form.component.scss'
+  templateUrl: './agregar-pacientes.component.html',
+  styleUrl: './agregar-pacientes.component.scss'
 })
-export class AddItemFormComponent implements OnInit {
+export class AgregarPacienteComponent implements OnInit {
   @ViewChild(MatStepper) stepper!: MatStepper;
   public personalInfoFormGroup: FormGroup;
   public procedureInfoFormGroup: FormGroup;
